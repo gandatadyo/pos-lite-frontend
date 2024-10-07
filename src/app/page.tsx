@@ -1,7 +1,6 @@
 'use client'
 
-import Image from "next/image";
-import Button from './components/Button';
+import Button from '@/app/components/Button';
 
 export default function Home() {
 
@@ -16,6 +15,12 @@ export default function Home() {
         <div><Button onClick={handleClick}>Login</Button></div>
         <div><Button onClick={handleClick}>Register</Button></div>
       </div>
+
+      <input
+        type="email"
+        className="w-full rounded-lg border-rose-200 p-4 pe-12 text-sm shadow-sm outline-rose-500"
+        placeholder="Enter email"
+      />
     </div>
   );
 }

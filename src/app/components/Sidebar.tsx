@@ -1,10 +1,12 @@
-'use client'
+import React from 'react';
 
-export default function Home({ params }: { params: { name: string } }) {
-  console.log(params);
+interface Props {
+  children: React.ReactNode;
+}
 
+const Sidebar: React.FC<Props> = ({ children }) => {
   return (
-    <div>
+    <>
       <div className="flex bg-gray-100">
         {/* sidebar */}
         <div style={{ width: '300px' }}>
@@ -167,9 +169,13 @@ export default function Home({ params }: { params: { name: string } }) {
         </div>
         {/* main content */}
         <div className="p-5">
-          <h1 className="text-xl">Main Content</h1>
+          <h1 className="text-xl">
+            {children}
+          </h1>
         </div>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default Sidebar;
