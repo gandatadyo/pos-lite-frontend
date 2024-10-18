@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Input from '@/app/components/Input';
 import Button from '@/app/components/Button';
+import Link from 'next/link'
 
 export default function Home() {
   const [stateInput, setStateInput] = useState<any>({});
@@ -16,44 +17,62 @@ export default function Home() {
   };
 
   return (
-    <div className="p-5">
+    <div className="bg-[#4f46e5]" style={{ height: "100%", position: 'absolute', width: '100%' }}>
 
-      <div className='flex justify-center mt-20'>
-        <div style={{ width: '500px' }}>
+      <div className='flex' style={{ height: '100%' }}>
+        {/* content */}
+        <div className='flex justify-center content-center items-center hidden md:flex md:w-[50%]'>
+          <div className='p-[20px]'>
+            <h1 className='text-white text-[40px] font-[500]'>APLIKASI MANAJEMEN BISNIS<br />TERBAIK NO 1 DI INDONESIA</h1>
+          </div>
+        </div>
 
-          <h1 className='text-xl text-center mb-5 text-blue-500'>Login Apps</h1>
+        {/* form */}
+        <div className='flex justify-center content-center items-center md:w-[50%] w-[100%]' style={{ backgroundColor: 'white', height: '100%', }}>
 
-          <label className="block text-sm font-medium text-gray-700">
-            Username
-          </label>
+          <div className='w-[400px]' >
 
-          <Input
-            name="username"
-            value={stateInput.username}
-            onChange={handleInputChange}
-            className='mb-3'
-            placeholder="Username"
-          />
+            <h1 className='mb-5 text-[40px]'>Login Apps</h1>
 
-          <label className="block text-sm font-medium text-gray-700">
-            Password
-          </label>
 
-          <Input
-            name="password"
-            value={stateInput.password}
-            onChange={handleInputChange}
-            className='mb-3'
-            placeholder="Password"
-          />
+            <label className="block text-sm font-medium text-gray-700">
+              Email
+            </label>
 
-          <h1>{stateInput.username}</h1>
+            <Input
+              name="email"
+              value={stateInput.email}
+              onChange={handleInputChange}
+              className='mb-3'
+              placeholder="Email"
+            />
 
-          <Button className='w-full mb-3' onClick={handleClick}>Login</Button>
-          <Button className='w-full bg-rose-500 hover:bg-rose-600' onClick={handleClick}>Register</Button>
+            <label className="block text-sm font-medium text-gray-700">
+              Password
+            </label>
+
+            <Input
+              name="password"
+              value={stateInput.password}
+              onChange={handleInputChange}
+              className='mb-3'
+              placeholder="Password"
+            />
+
+            <Button className='w-full bg-[#4f46e5] mb-3 mt-5' onClick={handleClick}>Login</Button>
+            <Link href="/register">
+              <Button className='w-full bg-[#475569] hover:bg-[#64748b]'>Register</Button>
+            </Link>
+
+
+
+          </div>
 
         </div>
+
       </div>
+
+
 
     </div>
   );
